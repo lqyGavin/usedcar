@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{#    <style>#}
+{#         body{#}
+{#             font: len Arial, Helvetica,sans-serif;#}
+{#             color: #666;#}
+{#             margin: 0;#}
+{#             padding: 0;#}
+{#         }#}
+{##}
+{#    </style>#}
+</head>
+<body>
+    {% block header %}
+    <div id="header" class="container">
+      <a href="{% url 'index' %}">
+        <img calss="login-img" src="{% static 'img/logo1.png' %}" alt=""/>
+      </a>
+        <ul>
+          <li><a href="{% url 'registerin' %}">卖车</a></li>
+          <li><a href="{% url 'buylist' %}">买车</a></li>
+          <li><a href="{% url 'service' %}">服务保障</a></li>
+          <li><a href="{% url 'userinfo' %}">个人中心</a></li>
+        </ul>
+    　　<p>
+          {% if request.user.username %}
+              欢迎您：{{ request.user.usename }}&nbsp;&nbsp;
+              <a href="{% url 'logout' %}">退出</a>
+          {% else %}
+              <a class="login" href="{% url 'login' %}">
+              <img src="{% static 'img/user.png' %}"/>登录
+              </a>
+       </p>
+    </div>
+    {% endblock %}
+
+</body>
+</html>

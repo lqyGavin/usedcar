@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎注册</title>
+</head>
+<body>
+    <form action="{% url 'registerin' %}" method="post">
+        {% csrf_token %}
+        <p><b>用户注册</b></p>
+        {{ msg }}
+        <p>
+            用户名：<input type='text' name="username" id="username" placeholder="请输入用户名">
+        </p>
+        <p>
+            密码：<input type='password' name="upwd" id="upwd" placeholder="请输入密码">
+        </p>
+        <p>
+            用户名：<input type='password' name="cpwd" id="cpwd" placeholder="请再次输入">
+        </p>
+        <button type="button">直接登录</button>
+        <button name="tobuy" type="submit">我要买车</button>
+        <button name="tosale" type="submit">我要卖车</button>
+    </form>
+
+</body>
+</html>
